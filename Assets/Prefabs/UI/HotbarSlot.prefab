@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1329286903212905975}
   - component: {fileID: 6063755736045493497}
   m_Layer: 0
-  m_Name: Slot
+  m_Name: HotbarSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5fc30d513d191d4ea9aeb5d7223c316, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1bbe7a977ca0104eac63111eea696f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -240,3 +240,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d81b2711f24084383fad0f4ec0a615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 0

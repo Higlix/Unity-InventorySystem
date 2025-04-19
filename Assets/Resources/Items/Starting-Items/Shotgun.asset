@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 287f007a980cb1c45b140fc583d4b367, type: 3}
-  m_Name: Pistol
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  itemName: Pistol
-  icon: {fileID: 21300000, guid: 47153396a8231f049962b18f2de51295, type: 3}
+  itemName: Shotgun
+  icon: {fileID: 21300000, guid: f2e1f8e33bc25384691eaa1191c93032, type: 3}
   description: 
-  value: 5000
+  value: 3000
   type: 1
-  ID: Item.Weapon.Pistol
+  ID: Item.Weapon.Shotgun

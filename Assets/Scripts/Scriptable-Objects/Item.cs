@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Inventory/Item")]
@@ -9,5 +10,5 @@ public class Item : ScriptableObject
     public int value;
     public ItemType type;
     public enum ItemType { None, Weapon, Potion, Collectible }
-    public int ID;
+    public string ID;
 }

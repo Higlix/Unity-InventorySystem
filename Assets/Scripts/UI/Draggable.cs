@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     [SerializeField] private Item item;
     private RectTransform rectTransform;
@@ -23,9 +23,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         image = GetComponent<Image>();
         canvas = GetComponentInParent<Canvas>();
         originalPosition = rectTransform.position;
-        originalParent = transform.parent;
         originalAlpha = image.color.a;
-        originalSlot = originalParent.GetComponent<ISlot>();
 
         if (item != null && image != null)
             image.sprite = item.icon;
@@ -39,25 +37,27 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             image.sprite = item.icon;
     }
 
+
+    public void UpdatePosition()
+    {
+        ABaseSlot slot = originalSlot as ABaseSlot;
+        if (slot)
+            rectTransform.position = slot.GetComponent<RectTransform>().position;
+    }
+
     public Item GetItem() => item;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f; // Fade during drag
-        transform.SetParent(canvas.transform, true);
-        transform.SetAsLastSibling();
+        transform.SetParent(GameObject.FindGameObjectWithTag("Dragging").transform);
 
-        // Notify original slot that item is being removed
-        if (originalSlot != null && originalSlot.Item == gameObject)
-        {
-            originalSlot.RemoveItem();
-        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.position = Input.mousePosition; 
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -69,9 +69,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         ISlot newSlot = eventData.pointerEnter?.GetComponent<ISlot>();
         if (newSlot == null || newSlot.Item != null)
         {
-            // Snap back to original position/slot
             rectTransform.position = originalPosition;
-            transform.SetParent(originalParent, true);
+            rectTransform.SetParent(GameObject.FindGameObjectWithTag("Hotbar-Items").transform);
             if (originalSlot != null && originalSlot.IsEmpty)
             {
                 originalSlot.PlaceItem(gameObject);
@@ -79,7 +78,6 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         else
         {
-            // Update original slot reference
             originalSlot = newSlot;
             originalPosition = rectTransform.position;
             originalParent = transform.parent;
@@ -91,5 +89,39 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         originalPosition = newPosition;
         originalParent = newParent;
         originalSlot = newParent.GetComponent<ISlot>();
+    }
+
+    public ISlot GetSlot()
+    {
+        return (originalSlot);
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        HotbarSlot inComingObjectSlot = eventData.pointerDrag.GetComponent<Draggable>().GetSlot() as HotbarSlot;
+        HotbarSlot currentObjectSlot = originalSlot as HotbarSlot; 
+
+        // if (inComingObjectSlot && currentObjectSlot)
+        // {
+        //     GameObject currentItem = currentObjectSlot.Item;
+        //     GameObject inComingItem = inComingObjectSlot.Item;
+
+        //     currentObjectSlot.RemoveItem(); 
+        //     inComingObjectSlot.RemoveItem();
+
+        //     inComingObjectSlot.PlaceItem(currentItem);
+        //     currentObjectSlot.PlaceItem(inComingItem);
+
+        //     HotbarManager hotbarManager = GameObject.FindGameObjectWithTag("Hotbar-Manager").GetComponent<HotbarManager>();
+        //     Hotbar hotbar = GameObject.FindGameObjectWithTag("Hotbar").GetComponent<Hotbar>();
+
+        //     if (inComingObjectSlot && currentObjectSlot && hotbarManager && hotbar)
+        //     {
+        //         Item tmp = hotbar.items[inComingObjectSlot.slotIndex];
+        //         hotbar.items[inComingObjectSlot.slotIndex] = hotbar.items[currentObjectSlot.slotIndex];
+        //         hotbar.items[currentObjectSlot.slotIndex] = tmp;
+        //     }
+        // }
+        GameObject.FindGameObjectWithTag("Hotbar-Manager").GetComponent<HotbarManager>().ChangeHotbarOrder(inComingObjectSlot.slotIndex, currentObjectSlot.slotIndex);
     }
 }

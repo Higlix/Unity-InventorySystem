@@ -5,10 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - InventoryWindow
-  - ItemManager
   - Hotbar-Slot
   - MainCanvas
   - Inventory
+  - Item-Manager
+  - Hotbar-Items
+  - Hotbar
+  - Hotbar-Manager
+  - Dragging
   layers:
   - Default
   - TransparentFX

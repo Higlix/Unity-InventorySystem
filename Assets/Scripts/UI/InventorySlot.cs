@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InventorySlot : BaseSlot
+public class InventorySlot : ABaseSlot
 {
     // No additional behavior needed; inherits all from BaseSlot
     public override void OnItemUsed()

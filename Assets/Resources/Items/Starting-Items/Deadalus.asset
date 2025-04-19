@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287f007a980cb1c45b140fc583d4b367, type: 3}
   m_Name: Deadalus
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Deadalus
+  icon: {fileID: 21300000, guid: 1b86a832c130dcf4fb7b1291f30ae18d, type: 3}
   description: 
-  value: 0
-  type: 0
+  value: 9000
+  type: 1
+  ID: Item.Weapon.Deadalus

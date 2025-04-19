@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Hotbar-Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -243,6 +247,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -350,6 +358,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Hotbar-Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -455,6 +467,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -644,6 +660,7 @@ RectTransform:
   - {fileID: 2012158686}
   - {fileID: 2021430286}
   - {fileID: 606187653}
+  - {fileID: 1413733458}
   m_Father: {fileID: 943259666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -679,7 +696,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1731006360}
   m_Father: {fileID: 1194774033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &590406611
@@ -808,6 +826,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -1061,6 +1083,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1037072298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1037072300}
+  - component: {fileID: 1037072301}
+  m_Layer: 0
+  m_Name: Hotbar-Manager
+  m_TagString: Hotbar-Manager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1037072300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037072298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1037072301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037072298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2991ea4f6ef74687442efe9776cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 2984888439649505554, guid: b59922facd36aa747a8d85cffb3e4bbb, type: 3}
 --- !u!1 &1110885700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194774033}
+  - component: {fileID: 1194774034}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1169,6 +1237,18 @@ Transform:
   - {fileID: 425482426}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194774034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194774032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 295425c2015f93b46a653880cf4f324e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1299910127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1184,6 +1264,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -1275,6 +1359,87 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
   m_PrefabInstance: {fileID: 1299910127}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1413733457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413733458}
+  m_Layer: 0
+  m_Name: Dragging
+  m_TagString: Dragging
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1413733458
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413733457}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296198267}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1731006359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731006360}
+  - component: {fileID: 1731006361}
+  m_Layer: 0
+  m_Name: Hotbar
+  m_TagString: Hotbar
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1731006360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731006359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 425482426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731006361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731006359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828db9e6a4b8d844690f6cfbb813c304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotCount: 10
+  items: []
 --- !u!1001 &1769027128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1290,6 +1455,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -1390,9 +1559,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1811566266}
+  - component: {fileID: 1811566267}
   m_Layer: 0
   m_Name: Item-Manager
-  m_TagString: Untagged
+  m_TagString: Item-Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1412,6 +1582,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1811566267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811566265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8043c9f448fdcff45b6405013f75ed88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!1001 &1863369818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,6 +1610,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -1674,7 +1861,7 @@ GameObject:
   - component: {fileID: 2021430286}
   m_Layer: 0
   m_Name: Hotbar-Items
-  m_TagString: Untagged
+  m_TagString: Hotbar-Items
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1713,6 +1900,10 @@ PrefabInstance:
     - target: {fileID: 4480664712261423398, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_TagString
       value: Hotbar-Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063755736045493497, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
+      propertyPath: slotIndex
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8462816110264774507, guid: 2eb25e2addd2bf44ea5993de8f17b58a, type: 3}
       propertyPath: m_Pivot.x
@@ -1905,6 +2096,7 @@ SceneRoots:
   - {fileID: 1194774033}
   - {fileID: 885494267}
   - {fileID: 1811566266}
+  - {fileID: 1037072300}
   - {fileID: 600925625}
   - {fileID: 943259666}
   - {fileID: 956101312}

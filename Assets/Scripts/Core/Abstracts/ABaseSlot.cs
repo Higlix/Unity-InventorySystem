@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class BaseSlot : MonoBehaviour, ISlot, IDropHandler
+public abstract class ABaseSlot : MonoBehaviour, ISlot, IDropHandler
 {
     protected GameObject item;
     protected Image image;
@@ -39,7 +39,6 @@ public abstract class BaseSlot : MonoBehaviour, ISlot, IDropHandler
             RectTransform draggedRect = eventData.pointerDrag.GetComponent<RectTransform>();
             RectTransform slotRect = GetComponent<RectTransform>();
             draggedRect.position = slotRect.position;
-            draggedRect.SetParent(transform, true);
 
             // Store item and update Draggable
             item = eventData.pointerDrag;
@@ -54,14 +53,17 @@ public abstract class BaseSlot : MonoBehaviour, ISlot, IDropHandler
 
     public virtual void PlaceItem(GameObject newItem)
     {
-        if (!IsEmpty)
+        if (!IsEmpty || newItem == null)
+        {
             return;
-
+        }
         item = newItem;
         RectTransform itemRect = item.GetComponent<RectTransform>();
         RectTransform slotRect = GetComponent<RectTransform>();
         itemRect.position = slotRect.position;
-        itemRect.SetParent(transform, true);
+        itemRect.SetParent(GameObject.FindGameObjectWithTag("Hotbar-Items").transform, true);
+       // itemRect.SetParent(GameObject.FindGameObjectWithTag("Inventory-Items").transform, true);
+
 
         Draggable draggable = item.GetComponent<Draggable>();
         if (draggable != null)
@@ -89,8 +91,8 @@ public abstract class BaseSlot : MonoBehaviour, ISlot, IDropHandler
     {
         if (image != null)
         {
-            float newAlpha = IsEmpty ? originalAlpha : 0.3f; // Fade when occupied
-            image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
+            // float newAlpha = IsEmpty ? originalAlpha : 0.3f; // Fade when occupied
+            // image.color = new Color(image.color.r, image.color.g, image.color.b, newAlpha);
         }
 
         if (breathingScript != null)
@@ -102,9 +104,6 @@ public abstract class BaseSlot : MonoBehaviour, ISlot, IDropHandler
     // Optional: Detect when item is dragged away
     protected virtual void Update()
     {
-        if (item != null && item.transform.parent != transform)
-        {
-            RemoveItem();
-        }
+
     }
 }
